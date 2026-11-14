@@ -182,6 +182,48 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
     .wind-pill.show { display: inline-flex; }
+    .arc-btn {
+      pointer-events: auto;
+      border: 0;
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 4px 12px;
+      min-height: 32px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: none;
+    }
+    .arc-btn.on { background: #0c3554; color: #ffffff; }
+    .arc-btn.done { opacity: 0.55; }
+    .assist-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 44px;
+      margin-top: 10px;
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .assist-toggle[aria-pressed="true"] { background: #0c3554; color: #ffffff; }
+    .assist-toggle b { color: var(--lime); letter-spacing: 0.04em; }
+    .assist-note {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+    .assist-note + .btn { margin-top: 10px; }
     .boss-hp {
       display: flex;
       align-items: center;
@@ -196,6 +238,136 @@
       display: block;
     }
     .boss-hp i.off { background: rgba(182, 200, 226, 0.22); }
+    .stam-row {
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .stam-row .focus-track { flex: 1; height: 8px; }
+    .stam-row span:first-child {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      width: 58px;
+    }
+    .stam-fill {
+      height: 100%;
+      width: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #38bdf8, #a3e635);
+    }
+    .stam-fill.low { background: #f87171; }
+    .perk-chip {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--lime);
+      white-space: nowrap;
+    }
+    .perk-chip:empty { display: none; }
+    .perk-list { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+    .perk-card {
+      width: 100%;
+      text-align: left;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: var(--surface-2);
+      color: var(--text);
+      cursor: pointer;
+      min-height: 72px;
+    }
+    .perk-card b { display: block; font-size: 16px; font-style: italic; margin: 2px 0; }
+    .perk-card span { display: block; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .perk-card .rarity { font-size: 10px; letter-spacing: 0.08em; color: var(--cyan); }
+    .perk-card.rare { border-color: var(--gold); }
+    .perk-card.rare .rarity { color: var(--gold); }
+    .perk-card:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+
+    #tutorial {
+      display: none;
+      position: absolute;
+      inset: 0;
+      z-index: 18;
+      pointer-events: none;
+    }
+    #tutorial.show { display: block; }
+    .tut-skip, .tut-card, .tut-card button { pointer-events: auto; }
+    .tut-skip {
+      position: absolute;
+      top: calc(env(safe-area-inset-top) + 12px);
+      right: 12px;
+      min-height: 36px;
+      border: 0;
+      border-radius: 999px;
+      padding: 6px 14px;
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+    .tut-card {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: calc(env(safe-area-inset-bottom) + 12px);
+      background: rgba(8, 17, 36, 0.94);
+      border-radius: 16px;
+      padding: 12px 14px 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+    .tut-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--lime);
+    }
+    .tut-card h2 {
+      font-size: 22px;
+      margin-top: 2px;
+    }
+    .tut-card p {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .tut-play {
+      margin-top: 10px;
+      height: 4px;
+      border-radius: 99px;
+      background: rgba(182, 200, 226, 0.18);
+      overflow: hidden;
+    }
+    .tut-play i {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: var(--lime);
+    }
+    .tut-row {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tut-dots { display: flex; gap: 8px; flex: 1; }
+    .tut-dots button {
+      width: 28px;
+      height: 28px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .tut-dots button[aria-current="true"] { background: var(--lime); color: var(--lime-ink); }
+    .tut-row .btn { width: auto; min-height: 44px; padding: 10px 18px; margin: 0; }
 
     /* Bottom Coach Toast */
     #hint {
@@ -573,6 +745,7 @@
         </div>
       </div>
       <div class="hud-sub">
+        <button class="arc-btn" id="arcBtn" type="button" aria-pressed="false">ARC OFF</button>
         <button class="focus-pill" id="focusBtn" type="button" aria-label="Trigger Focus slow motion">
           <span id="focusLabel">FOCUS</span>
           <span class="focus-track"><span class="focus-fill" id="focusFill"></span></span>
@@ -580,9 +753,14 @@
         <div class="wind-pill" id="windPill">WIND 0</div>
         <div class="boss-hp" id="bossHp"></div>
       </div>
+      <div class="stam-row">
+        <span id="stamLabel">STAMINA</span>
+        <span class="focus-track"><span class="stam-fill" id="stamFill"></span></span>
+        <span class="perk-chip" id="perkChip"></span>
+      </div>
     </div>
 
-    <div id="hint">SWIPE OR TAP THE TARGET RING TO DIVE · WAIT FOR THE STRIKE</div>
+    <div id="hint">READ THE BODY · NO TARGET RING ON STAGE 1</div>
 
     <!-- Title Screen: Live floodlit stadium & keeper in center -->
     <div class="screen show" id="title">
@@ -604,8 +782,13 @@
       <div class="title-bottom">
         <div class="controls-cue">
           <span><strong>Tap or Swipe</strong> to dive</span>
-          <span><strong>Hold nerve</strong> on stutter fakes</span>
+          <span><strong>Read the body</strong> before the strike</span>
         </div>
+        <button class="assist-toggle" id="assistBtn" type="button" aria-pressed="false">
+          <span>Assist Arc</span><b>OFF</b>
+        </button>
+        <p class="assist-note">Draws the flight path on the teaching shots.</p>
+        <button class="btn secondary small" id="howBtn" type="button">How to play</button>
         <button class="btn" id="playBtn" type="button">KICK OFF</button>
         <div class="row2">
           <button class="btn secondary small" id="lockerBtn" type="button">Locker Room</button>
@@ -685,19 +868,46 @@
       </div>
     </div>
 
+    <!-- Perk pick: lasts the next stage -->
+    <div class="screen modal-bg" id="perk">
+      <div class="sheet">
+        <h2 class="center">Keeper Perk</h2>
+        <p class="sub center">Pick one. It lasts the next stage.</p>
+        <div class="perk-list" id="perkList"></div>
+      </div>
+    </div>
+
     <!-- Pause -->
     <div class="screen modal-bg" id="paused">
       <div class="sheet">
         <h2 class="center">Match Paused</h2>
         <p class="sub center" style="margin-bottom:14px">Catch your breath, keeper.</p>
         <button class="btn" id="resumeBtn" type="button">RESUME MATCH</button>
+        <button class="assist-toggle" id="assistPauseBtn" type="button" aria-pressed="false">
+          <span>Assist Arc</span><b>OFF</b>
+        </button>
+        <p class="assist-note">Teaching shots only.</p>
         <button class="btn secondary small" id="quitBtn" type="button">End Run</button>
+      </div>
+    </div>
+
+    <div id="tutorial" aria-hidden="true">
+      <button class="tut-skip" id="tutSkip" type="button">SKIP</button>
+      <div class="tut-card">
+        <div class="tut-kicker" id="tutKicker">1 / 3</div>
+        <h2 id="tutTitle">Swipe to dive</h2>
+        <p id="tutBody">Swipe toward the ball. Your keeper dives where you aim.</p>
+        <div class="tut-play" aria-hidden="true"><i id="tutPlay"></i></div>
+        <div class="tut-row">
+          <div class="tut-dots" id="tutDots"></div>
+          <button class="btn" id="tutNext" type="button">NEXT</button>
+        </div>
       </div>
     </div>
 
     <div id="toast" role="status" aria-live="polite"></div>
   </div>
-  <script src="audio.js?v=2"></script>
-  <script src="game.js?v=2"></script>
+  <script src="audio.js?v=3"></script>
+  <script src="game.js?v=14"></script>
 </body>
 </html>

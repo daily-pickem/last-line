@@ -147,6 +147,22 @@ window.AudioFX = (() => {
       noise(0.13, 'lowpass', 540, 0.8, 0.58);
       mark('block');
     },
+    parry() {
+      tone('sine', 150, 58, 0.11, 0.72);
+      noise(0.06, 'bandpass', 1680, 1.5, 0.5);
+      mark('parry');
+    },
+    rattle() {
+      [1, 2.5, 4.1].forEach((m, i) => tone('sine', 520 * m, 520 * m * 0.96, 0.16 / (i + 1), 0.07 / (i + 1)));
+      noise(0.05, 'highpass', 2600, 0.7, 0.22);
+      mark('rattle');
+    },
+    fail() {
+      tone('sawtooth', 240, 78, 0.2, 0.32);
+      tone('square', 160, 64, 0.16, 0.1, 0.015);
+      noise(0.1, 'lowpass', 380, 0.7, 0.36);
+      mark('fail');
+    },
     post() {
       [1, 2.76, 5.4, 8.93].forEach((m, i) =>
         tone('sine', 540 * m, 540 * m * 0.994, 1.25 / (i + 1), 0.27 / (i + 1))
